@@ -1,0 +1,7 @@
+/* Stations.css — Custom animation and canvas styles for Site Lab stations */
+.station-svg-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
