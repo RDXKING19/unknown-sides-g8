@@ -12,7 +12,7 @@ const TONES = {
 export function Panel({ children, className = '' }) {
   return (
     <div
-      className={`flex flex-col items-center gap-3 bg-[#1e1342]/95 border-2 border-cyan-400/40 rounded-2xl p-3 sm:p-4 shadow-xl flex-1 min-h-0 overflow-y-auto ${className}`}
+      className={`flex flex-col items-center gap-2 sm:gap-2.5 bg-[#1e1342]/95 border-2 border-cyan-400/40 rounded-2xl p-2.5 sm:p-3.5 shadow-xl flex-1 min-h-0 overflow-y-auto ${className}`}
     >
       {children}
     </div>
@@ -22,7 +22,7 @@ export function Panel({ children, className = '' }) {
 export function Node({ tone = 'cyan', children, w = 'w-auto', className = '' }) {
   return (
     <div
-      className={`px-3.5 sm:px-4 py-1.5 sm:py-2 min-h-[44px] rounded-2xl border-2 font-display font-900 text-sm sm:text-base md:text-lg flex items-center justify-center text-center whitespace-nowrap transition-all duration-300 shadow-md ${w} ${TONES[tone] || TONES.cyan} ${className}`}
+      className={`px-3 sm:px-3.5 py-1 sm:py-1.5 min-h-[38px] sm:min-h-[40px] rounded-xl sm:rounded-2xl border-2 font-display font-900 text-xs sm:text-sm md:text-base flex items-center justify-center text-center whitespace-nowrap transition-all duration-300 shadow-md ${w} ${TONES[tone] || TONES.cyan} ${className}`}
     >
       {children}
     </div>
@@ -41,7 +41,7 @@ export function Msg({ tone = 'emerald', children }) {
     <div
       role="status"
       aria-live="polite"
-      className={`w-full px-4 py-2.5 rounded-2xl border-2 text-sm sm:text-base font-900 text-center fade-in-up shrink-0 ${cls}`}
+      className={`w-full px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl border-2 text-xs sm:text-sm font-900 text-center fade-in-up shrink-0 ${cls}`}
     >
       {children}
     </div>
@@ -52,7 +52,7 @@ export const GoldBtn = ({ children, onClick, disabled = false, className = '' })
   <button
     onClick={onClick}
     disabled={disabled}
-    className={`btn-gold text-sm sm:text-base font-900 px-6 py-2.5 shadow-lg hover:scale-105 transition cursor-pointer shrink-0 disabled:opacity-40 disabled:cursor-not-allowed ${className}`}
+    className={`btn-gold text-xs sm:text-sm font-900 px-4 sm:px-5 py-2 shadow-lg hover:scale-105 transition cursor-pointer shrink-0 disabled:opacity-40 disabled:cursor-not-allowed ${className}`}
   >
     {children}
   </button>
@@ -62,7 +62,7 @@ export const GhostBtn = ({ children, onClick, disabled = false, active = false, 
   <button
     onClick={onClick}
     disabled={disabled}
-    className={`font-display font-900 text-xs sm:text-sm px-4 py-2.5 rounded-xl border transition cursor-pointer shrink-0 min-h-[44px] min-w-[44px] disabled:opacity-40 disabled:cursor-not-allowed ${
+    className={`font-display font-900 text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl border transition cursor-pointer shrink-0 min-h-[38px] disabled:opacity-40 disabled:cursor-not-allowed ${
       active
         ? 'bg-cyan-400 text-slate-950 border-cyan-200 shadow-[0_0_14px_rgba(56,189,248,0.6)]'
         : 'bg-purple-900/80 hover:bg-purple-800 border-purple-400/50 text-purple-100'
@@ -102,9 +102,9 @@ export function NumberSlider({
   };
 
   return (
-    <div className="w-full min-w-0 flex items-center gap-2 bg-[#13082b]/90 border border-white/15 px-3 py-1.5 sm:py-2 rounded-2xl overflow-hidden box-border">
-      <span className="font-display font-900 text-xs sm:text-sm text-slate-200 shrink-0 whitespace-nowrap min-w-[70px] sm:min-w-[85px]">
-        {label}: <span className="text-amber-300 font-mono font-black text-sm sm:text-base">{value}{unit ? ` ${unit}` : ''}</span>
+    <div className="w-full min-w-0 flex items-center gap-2 bg-[#13082b]/90 border border-white/15 px-2.5 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl overflow-hidden box-border">
+      <span className="font-display font-900 text-xs sm:text-sm text-slate-200 shrink-0 whitespace-nowrap min-w-[65px] sm:min-w-[80px]">
+        {label}: <span className="text-amber-300 font-mono font-black text-xs sm:text-sm">{value}{unit ? ` ${unit}` : ''}</span>
       </span>
 
       <button
@@ -112,7 +112,7 @@ export function NumberSlider({
         onClick={dec}
         disabled={value <= min}
         aria-label={`Decrease ${label} by ${step} ${unit}`}
-        className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl bg-white/10 hover:bg-white/20 text-white font-black text-base flex items-center justify-center transition disabled:opacity-30 cursor-pointer active:scale-95 shrink-0"
+        className="w-8 h-8 sm:w-9 sm:h-9 min-w-[32px] min-h-[32px] rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 text-white font-black text-sm sm:text-base flex items-center justify-center transition disabled:opacity-30 cursor-pointer active:scale-95 shrink-0"
       >
         −
       </button>
@@ -126,7 +126,7 @@ export function NumberSlider({
         onChange={e => onChange(Number(e.target.value))}
         onKeyDown={handleKeyDown}
         aria-label={`${label} slider`}
-        className="flex-1 min-w-[50px] w-full accent-amber-400 cursor-pointer h-2.5 sm:h-3"
+        className="flex-1 min-w-[50px] w-full accent-amber-400 cursor-pointer h-2 sm:h-2.5"
       />
 
       <button
@@ -134,7 +134,7 @@ export function NumberSlider({
         onClick={inc}
         disabled={value >= max}
         aria-label={`Increase ${label} by ${step} ${unit}`}
-        className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl bg-white/10 hover:bg-white/20 text-white font-black text-base flex items-center justify-center transition disabled:opacity-30 cursor-pointer active:scale-95 shrink-0"
+        className="w-8 h-8 sm:w-9 sm:h-9 min-w-[32px] min-h-[32px] rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 text-white font-black text-sm sm:text-base flex items-center justify-center transition disabled:opacity-30 cursor-pointer active:scale-95 shrink-0"
       >
         +
       </button>

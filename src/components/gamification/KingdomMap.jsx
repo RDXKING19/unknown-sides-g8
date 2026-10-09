@@ -12,7 +12,7 @@ export function KingdomMap({
   return (
     <div className="w-full flex flex-col items-center">
       {/* 10 Worlds Grid (Responsive 2 cols mobile, 5 cols desktop) */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3.5 sm:gap-4 w-full p-1 overflow-y-auto map-fit">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3 w-full p-1 overflow-y-auto map-fit">
         {WORLDS.map((w, idx) => {
           const stars = worldResults[idx] || 0;
           const hasPlayed = worldResults[idx] != null;
@@ -24,7 +24,7 @@ export function KingdomMap({
               style={{
                 borderColor: `${w.accent}80`
               }}
-              className="p-3.5 sm:p-4 rounded-2xl border-2 flex flex-col items-center justify-between text-center transition-all duration-300 min-h-[140px] sm:min-h-[160px] bg-[#14082c]/95 hover:scale-105 cursor-pointer shadow-xl"
+              className="p-2.5 sm:p-3 rounded-2xl border-2 flex flex-col items-center justify-between text-center transition-all duration-300 min-h-[125px] sm:min-h-[140px] bg-[#14082c]/95 hover:scale-105 cursor-pointer shadow-xl"
             >
               <div className="w-full flex items-center justify-between text-xs font-black text-slate-300">
                 <span className="bg-white/10 px-2 py-0.5 rounded-md">W{idx + 1}</span>
@@ -33,7 +33,7 @@ export function KingdomMap({
                 </span>
               </div>
 
-              <span className="text-4xl sm:text-5xl my-1 drop-shadow-md">
+              <span className="text-3xl sm:text-4xl my-0.5 drop-shadow-md">
                 {w.emoji}
               </span>
 

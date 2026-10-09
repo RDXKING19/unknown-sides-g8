@@ -84,13 +84,13 @@ export function LadderLockIn({ onComplete, audioEnabled = true }) {
   return (
     <Panel>
       {/* Header Info */}
-      <div className="w-full flex flex-wrap items-center justify-between gap-2 border-b border-white/15 pb-2 shrink-0">
-        <span className="font-display font-900 text-sm sm:text-base text-cyan-300">
+      <div className="w-full flex flex-wrap items-center justify-between gap-1.5 border-b border-white/15 pb-1.5 shrink-0">
+        <span className="font-display font-900 text-xs sm:text-sm text-cyan-300">
           Job Round {roundIdx + 1} of 3 {curr.isDec ? '(Precision Decimal Round)' : '(Whole-Number Round)'}
         </span>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1">
           {roundDone.map((d, i) => (
-            <span key={i} className={`text-xs px-2 py-0.5 rounded-full font-bold ${d ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40' : 'bg-white/10 text-slate-400'}`}>
+            <span key={i} className={`text-[11px] sm:text-xs px-2 py-0.5 rounded-full font-bold ${d ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40' : 'bg-white/10 text-slate-400'}`}>
               R{i + 1} {d ? '✓' : ''}
             </span>
           ))}
@@ -98,7 +98,7 @@ export function LadderLockIn({ onComplete, audioEnabled = true }) {
       </div>
 
       {/* Target Briefing */}
-      <div className="w-full bg-[#120829] border border-cyan-400/30 rounded-xl p-2.5 flex flex-wrap items-center justify-between gap-2 shrink-0">
+      <div className="w-full bg-[#120829] border border-cyan-400/30 rounded-xl p-2 flex flex-wrap items-center justify-between gap-1.5 shrink-0">
         <div className="text-left text-xs sm:text-sm">
           <span className="text-slate-300">Ladder Length: </span>
           <span className="text-cyan-300 font-black">{L} m</span>
@@ -106,7 +106,7 @@ export function LadderLockIn({ onComplete, audioEnabled = true }) {
           <span className="text-slate-300">Target Ledge: </span>
           <span className="text-amber-300 font-black">{H} m</span>
         </div>
-        <div className={`px-2.5 py-0.5 rounded-full text-xs font-black ${isNear ? (isMatched ? 'bg-emerald-950 text-emerald-300 border border-emerald-400' : 'bg-amber-950 text-amber-300 border border-amber-400') : 'bg-white/10 text-slate-400'}`}>
+        <div className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-black ${isNear ? (isMatched ? 'bg-emerald-950 text-emerald-300 border border-emerald-400' : 'bg-amber-950 text-amber-300 border border-amber-400') : 'bg-white/10 text-slate-400'}`}>
           {isMatched ? 'LOCKED IN 🎯' : isNear ? 'NEAR LEDGE ⚠️' : 'ADJUST FOOT'}
         </div>
       </div>
@@ -125,16 +125,16 @@ export function LadderLockIn({ onComplete, audioEnabled = true }) {
       </div>
 
       {/* Running Formula Readout */}
-      <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center shrink-0">
+      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center shrink-0">
         <Node tone="amber">foot² = {sq(foot).toFixed(curr.isDec ? 2 : 0)}</Node>
-        <span className="text-xl font-black text-amber-300">+</span>
+        <span className="text-lg font-black text-amber-300">+</span>
         <Node tone="cyan">height² = {sq(heightReached).toFixed(curr.isDec ? 2 : 0)}</Node>
-        <span className="text-xl font-black text-cyan-300">=</span>
+        <span className="text-lg font-black text-cyan-300">=</span>
         <Node tone="purple">ladder² = {sq(L)}</Node>
       </div>
 
       {/* SVG Wall & Ladder Canvas */}
-      <div className="w-full max-w-lg h-52 bg-[#0e0622]/90 border-2 border-purple-400/30 rounded-2xl flex items-center justify-center relative shadow-inner shrink-0">
+      <div className="w-full max-w-lg h-34 sm:h-38 md:h-40 max-h-[24dvh] bg-[#0e0622]/90 border-2 border-purple-400/30 rounded-2xl flex items-center justify-center relative shadow-inner shrink-0">
         <svg viewBox={`0 0 ${svgW} ${svgH}`} className="w-full h-full select-none">
           {/* Ground Line */}
           <line x1={20} y1={groundY} x2={svgW - 20} y2={groundY} stroke="#64748b" strokeWidth="3" />
@@ -204,7 +204,7 @@ export function LadderLockIn({ onComplete, audioEnabled = true }) {
       )}
 
       {/* Button Row */}
-      <div className="flex items-center gap-3 shrink-0">
+      <div className="flex items-center gap-2.5 shrink-0">
         {!roundDone[roundIdx] ? (
           <GoldBtn onClick={handleCheck}>
             Lock Position & Check 🔧

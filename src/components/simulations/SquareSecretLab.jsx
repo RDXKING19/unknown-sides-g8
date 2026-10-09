@@ -93,8 +93,8 @@ export function SquareSecretLab({ onComplete, audioEnabled = true }) {
   return (
     <Panel>
       {/* Stage Tabs */}
-      <div className="w-full flex flex-wrap items-center justify-between gap-2 border-b border-white/15 pb-2.5 shrink-0">
-        <div className="flex flex-wrap items-center gap-2">
+      <div className="w-full flex flex-wrap items-center justify-between gap-1.5 border-b border-white/15 pb-1.5 shrink-0">
+        <div className="flex flex-wrap items-center gap-1.5">
           <GhostBtn active={stage === 'tiles'} onClick={() => setStage('tiles')}>
             1. Tile Pour ({pairsSeen.size}/4 pairs {stage1Complete ? '✅' : ''})
           </GhostBtn>
@@ -113,15 +113,15 @@ export function SquareSecretLab({ onComplete, audioEnabled = true }) {
             3. Rule Lock 📋
           </GhostBtn>
         </div>
-        <span className="text-xs font-bold text-cyan-300">
+        <span className="text-[11px] sm:text-xs font-bold text-cyan-300">
           Archetype: Concept Discovery
         </span>
       </div>
 
       {/* -------------------- STAGE 1: TILE POUR -------------------- */}
       {stage === 'tiles' && (
-        <div className="w-full flex flex-col items-center gap-2.5 sm:gap-3 flex-1 min-h-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 w-full min-w-0 shrink-0">
+        <div className="w-full flex flex-col items-center gap-1.5 sm:gap-2 flex-1 min-h-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full min-w-0 shrink-0">
             <div className="w-full min-w-0">
               <NumberSlider
                 label="Leg a"
@@ -147,18 +147,18 @@ export function SquareSecretLab({ onComplete, audioEnabled = true }) {
           </div>
 
           {/* Running Readout */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center shrink-0">
             <Node tone="cyan">a² = {sq(a)}</Node>
-            <span className="text-xl font-black text-cyan-300">+</span>
+            <span className="text-lg font-black text-cyan-300">+</span>
             <Node tone="amber">b² = {sq(b)}</Node>
-            <span className="text-xl font-black text-amber-300">=</span>
+            <span className="text-lg font-black text-amber-300">=</span>
             <Node tone="purple">
               c² = {c2_tiles} {hypInt_tiles ? `(c = ${hypInt_tiles})` : `(c ≈ ${root1dp(c2_tiles)})`}
             </Node>
           </div>
 
           {/* SVG Visual with dynamic squares */}
-          <div className="w-full max-w-lg h-44 sm:h-48 bg-[#100726]/80 border-2 border-cyan-500/30 rounded-2xl flex items-center justify-center relative p-2 shadow-inner shrink-0">
+          <div className="w-full max-w-lg h-32 sm:h-36 md:h-40 max-h-[22dvh] bg-[#100726]/80 border-2 border-cyan-500/30 rounded-2xl flex items-center justify-center relative p-1.5 shadow-inner shrink-0">
             <svg viewBox="0 0 320 200" className="w-full h-full select-none">
               {/* Central right triangle */}
               <polygon
@@ -197,7 +197,7 @@ export function SquareSecretLab({ onComplete, audioEnabled = true }) {
           </div>
 
           {/* Action Row */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0">
             <GoldBtn onClick={handlePour}>
               {isPoured ? "Tiles Poured! ✨" : "Pour Tiles into c² 🧪"}
             </GoldBtn>
@@ -218,15 +218,15 @@ export function SquareSecretLab({ onComplete, audioEnabled = true }) {
 
       {/* -------------------- STAGE 2: ANGLE BENDER -------------------- */}
       {stage === 'bender' && (
-        <div className="w-full flex flex-col items-center gap-3 flex-1 min-h-0">
-          <p className="text-slate-200 text-sm font-bold text-center">
+        <div className="w-full flex flex-col items-center gap-2 sm:gap-2.5 flex-1 min-h-0">
+          <p className="text-slate-200 text-xs sm:text-sm font-bold text-center">
             Legs are fixed at a = 3, b = 4 (a² + b² = 25). Drag the angle slider between 40° and 140°. Notice when c² matches 25!
           </p>
 
           <div className="w-full max-w-md shrink-0">
-            <div className="flex items-center justify-between text-sm font-bold text-slate-300 mb-1">
+            <div className="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-300 mb-0.5">
               <span>Angle θ between legs:</span>
-              <span className={`font-mono text-base font-black ${isAngle90 ? 'text-emerald-400' : 'text-amber-300'}`}>
+              <span className={`font-mono text-sm sm:text-base font-black ${isAngle90 ? 'text-emerald-400' : 'text-amber-300'}`}>
                 {theta}° {isAngle90 ? '🔒 RIGHT ANGLE LOCKED' : ''}
               </span>
             </div>
@@ -237,30 +237,30 @@ export function SquareSecretLab({ onComplete, audioEnabled = true }) {
               step="5"
               value={theta}
               onChange={e => handleAngleChange(Number(e.target.value))}
-              className="w-full accent-amber-400 cursor-pointer h-3"
+              className="w-full accent-amber-400 cursor-pointer h-2.5"
             />
           </div>
 
           {/* Comparative Area Bars */}
-          <div className="w-full max-w-md bg-black/40 border border-white/15 rounded-2xl p-3 flex flex-col gap-2 shrink-0">
+          <div className="w-full max-w-md bg-black/40 border border-white/15 rounded-xl p-2 sm:p-2.5 flex flex-col gap-1.5 shrink-0">
             <div>
-              <div className="flex justify-between text-xs font-bold text-slate-300 mb-0.5">
+              <div className="flex justify-between text-[11px] sm:text-xs font-bold text-slate-300 mb-0.5">
                 <span>Sum of squares on legs (a² + b² = 9 + 16):</span>
                 <span className="text-cyan-300 font-bold">25 units²</span>
               </div>
-              <div className="w-full bg-white/10 h-3 rounded-full overflow-hidden">
+              <div className="w-full bg-white/10 h-2.5 rounded-full overflow-hidden">
                 <div className="bg-cyan-400 h-full w-[50%]" />
               </div>
             </div>
 
             <div>
-              <div className="flex justify-between text-xs font-bold text-slate-300 mb-0.5">
+              <div className="flex justify-between text-[11px] sm:text-xs font-bold text-slate-300 mb-0.5">
                 <span>Square on opposite side (c²):</span>
                 <span className={`font-bold ${isAngle90 ? 'text-emerald-400' : 'text-rose-400'}`}>
                   {c2_bender.toFixed(1)} units²
                 </span>
               </div>
-              <div className="w-full bg-white/10 h-3 rounded-full overflow-hidden">
+              <div className="w-full bg-white/10 h-2.5 rounded-full overflow-hidden">
                 <div
                   className={`h-full transition-all duration-150 ${isAngle90 ? 'bg-emerald-400' : 'bg-rose-400'}`}
                   style={{ width: `${Math.min(100, (c2_bender / 50) * 100)}%` }}

@@ -178,7 +178,7 @@ export function SiteReportDetective({ onComplete, audioEnabled = true }) {
       </div>
 
       {/* Real-World SVG Interactive Simulation Display */}
-      <div className="w-full max-w-lg h-44 sm:h-48 bg-[#0c051d]/90 border-2 border-cyan-500/40 rounded-2xl flex items-center justify-center relative shadow-inner overflow-hidden shrink-0">
+      <div className="w-full max-w-lg h-34 sm:h-38 md:h-40 max-h-[24dvh] bg-[#0c051d]/90 border-2 border-cyan-500/40 rounded-2xl flex items-center justify-center relative shadow-inner overflow-hidden shrink-0">
         <svg viewBox={`0 0 ${svgW} ${svgH}`} className="w-full h-full select-none">
           {/* Ground surface */}
           <line x1={20} y1={groundY} x2={svgW - 20} y2={groundY} stroke="#64748b" strokeWidth={3.5} />

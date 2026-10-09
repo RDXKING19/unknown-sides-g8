@@ -191,9 +191,9 @@ export function PlayPhase({
       <FloatingSymbols />
 
       {/* Main Glass Card Frame */}
-      <div className="w-full max-w-6xl card-fit glass-card flex flex-col items-center text-center fade-in-up z-20 my-auto py-4 sm:py-5 px-4 sm:px-8 overflow-hidden">
+      <div className="w-full max-w-6xl card-fit glass-card flex flex-col items-center text-center fade-in-up z-20 my-auto py-2.5 sm:py-3.5 px-3 sm:px-6 overflow-hidden">
         {/* Phase Band */}
-        <div className="phase-band phase-band--play mb-2 shrink-0" />
+        <div className="phase-band phase-band--play mb-1 sm:mb-1.5 shrink-0" />
 
         {/* ---------------- VIEW 1: MAP VIEW ---------------- */}
         {activeWorld === null && bossIntroFor === null && (
@@ -288,11 +288,11 @@ export function PlayPhase({
         {activeWorld !== null && (
           <div className="w-full flex flex-col items-center flex-1 min-h-0 overflow-y-auto">
             {/* Session Top Status Bar */}
-            <div className="w-full flex items-center justify-between border-b border-white/15 pb-2 mb-2 shrink-0">
+            <div className="w-full flex items-center justify-between border-b border-white/15 pb-1.5 mb-1.5 shrink-0">
               {/* Back to map button */}
               <button
                 onClick={() => setActiveWorld(null)}
-                className="bg-white/10 hover:bg-white/20 text-white font-display text-xs sm:text-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer min-h-[44px]"
+                className="bg-white/10 hover:bg-white/20 text-white font-display text-xs sm:text-sm px-3 py-1 rounded-full flex items-center gap-1.5 cursor-pointer min-h-[38px] sm:min-h-[44px]"
               >
                 <span>←</span>
                 <span>Job Sites</span>

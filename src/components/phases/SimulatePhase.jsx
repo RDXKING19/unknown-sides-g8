@@ -62,13 +62,13 @@ export function SimulatePhase({
       <FloatingSymbols />
 
       {/* Main Simulation Stations Card */}
-      <div className="w-full max-w-6xl sim-card card-fit bg-[#160b36]/95 border-2 border-purple-400/40 rounded-3xl p-4 sm:p-6 shadow-2xl backdrop-blur-md flex flex-col items-center fade-in-up z-20 my-auto overflow-hidden">
+      <div className="w-full max-w-6xl sim-card card-fit bg-[#160b36]/95 border-2 border-purple-400/40 rounded-3xl p-3 sm:p-4 md:p-5 shadow-2xl backdrop-blur-md flex flex-col items-center fade-in-up z-20 my-auto overflow-hidden">
         {/* Cyan Accent Bar */}
-        <div className="sim-accent w-24 h-2 bg-cyan-400 rounded-full mb-2 shadow-[0_0_18px_rgba(56,189,248,0.85)] shrink-0" />
+        <div className="sim-accent w-24 h-1.5 bg-cyan-400 rounded-full mb-1.5 shadow-[0_0_18px_rgba(56,189,248,0.85)] shrink-0" />
 
         {/* Card Header Title */}
-        <h2 className="sim-title font-display font-900 text-xl sm:text-2xl text-white flex items-center gap-2.5 mb-3 shrink-0">
-          <span className="text-2xl sm:text-3xl">🧪</span>
+        <h2 className="sim-title font-display font-900 text-lg sm:text-xl md:text-2xl text-white flex items-center gap-2 mb-2 shrink-0">
+          <span className="text-xl sm:text-2xl">🧪</span>
           <span>Surveyor Site Lab — 3 Investigation Stations</span>
         </h2>
 
@@ -161,15 +161,15 @@ export function SimulatePhase({
           </div>
 
           {/* Right Column: Interactive Station Workspace */}
-          <div className="sim-right col-span-1 md:col-span-8 bg-[#13092e]/95 border-2 border-purple-400/35 rounded-3xl p-3 sm:p-5 flex flex-col justify-between shadow-inner flex-1 min-h-0 overflow-hidden">
+          <div className="sim-right col-span-1 md:col-span-8 bg-[#13092e]/95 border-2 border-purple-400/35 rounded-3xl p-2.5 sm:p-3.5 flex flex-col justify-between shadow-inner flex-1 min-h-0 overflow-hidden">
             <div className="flex flex-col flex-1 min-h-0 justify-between">
               {/* Header Row */}
-              <div className="sim-head flex items-center justify-between border-b border-white/15 pb-2.5 mb-2.5 shrink-0">
-                <h3 className="font-display font-900 text-base sm:text-lg text-cyan-300 flex items-center gap-2.5">
-                  <span className="text-xl sm:text-2xl">{currentStation.icon}</span>
+              <div className="sim-head flex items-center justify-between border-b border-white/15 pb-1.5 mb-1.5 sm:pb-2 sm:mb-2 shrink-0">
+                <h3 className="font-display font-900 text-sm sm:text-base text-cyan-300 flex items-center gap-2">
+                  <span className="text-lg sm:text-xl">{currentStation.icon}</span>
                   <span className="line-clamp-1">{currentStation.name}</span>
                 </h3>
-                <span className="font-display font-900 text-xs text-slate-200 bg-white/10 px-3 py-1 rounded-full border border-white/15">
+                <span className="font-display font-900 text-xs text-slate-200 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
                   Station {stationIdx + 1} of 3
                 </span>
               </div>
